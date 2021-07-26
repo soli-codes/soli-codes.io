@@ -2,6 +2,7 @@ body {
     background-color: #141414;
     color: rgb(192, 165, 255);
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -51,7 +52,7 @@ a:hover {
     border-bottom: 2px solid #fe5185;
 }
 
-.feather {
+.ico {
     display: inline-block;
     vertical-align: -0.125em;
     width: 1em;
