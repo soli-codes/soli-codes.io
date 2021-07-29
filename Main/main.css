@@ -1,14 +1,23 @@
 body {
-    background-color: #141414;
-    color: rgb(192, 165, 255);
+    background-color: #18181b;
+    color: rgb(229, 218, 255);
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+}
+
+::selection {
+    background: rgb(229, 218, 255);
+    color: #18181b;
+}
+::moz-selection {
+    background: rgb(229, 218, 255);
+    color: #18181b;
 }
 
 a {
     text-decoration: none;
     border: none;
-    color: rgb(192, 165, 255);
+    color: rgb(229, 218, 255);
 }
 html {
     line-height: 1.6;
@@ -27,7 +36,7 @@ html {
 }
 
 svg {
-    color: rgb(192, 165, 255);
+    color: rgb(229, 218, 255);
 }
 
 .center {
@@ -49,7 +58,7 @@ svg {
 }
 
 a:hover {
-    border-bottom: 2px solid #fe5185;
+    border-bottom: 2px solid rgb(152, 108, 255);
 }
 
 .ico {
@@ -67,7 +76,7 @@ a:hover {
 }
 
 #site-nav a:hover {
-    border-bottom: 2px solid #fe5185;
+    border-bottom: 2px solid rgb(152, 108, 255);
 }
 
 .name {
