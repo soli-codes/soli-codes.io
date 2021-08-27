@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
     return (
@@ -43,9 +44,7 @@ const Landing = () => {
                     </a>
                 </div>
                 <nav id='site-nav'>
-                    <a href='index.html'>Valorant</a>
-                    <a href='index.html'>FFXIV</a>
-                    <a href='index.html'>Blog</a>
+                    <Link to='/toolbox'>Toolbox</Link>
                 </nav>
             </div>
         </div>
