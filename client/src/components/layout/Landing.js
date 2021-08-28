@@ -45,6 +45,7 @@ const Landing = () => {
                 </div>
                 <nav id='site-nav'>
                     <Link to='/toolbox'>Toolbox</Link>
+                    <Link to='/blog'>Blog</Link>
                 </nav>
             </div>
         </div>

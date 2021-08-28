@@ -2,9 +2,12 @@ import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 import PropTypes from 'prop-types';
+import { login } from '../../actions/auth';
 
 import '../../style.css';
-const Login = ({ setAlert }) => {
+import { Redirect } from 'react-router-dom';
+
+const Login = ({ setAlert, login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -23,8 +26,13 @@ const Login = ({ setAlert }) => {
         }
         if (!password) {
             setAlert('Password is required', 'danger');
-        }
+        } else login({ email, password });
     };
+
+    // Redirect if logged in
+    if (isAuthenticated) {
+        return <Redirect to='/dashboard' />;
+    }
 
     return (
         <Fragment>
@@ -90,6 +98,12 @@ const Login = ({ setAlert }) => {
 
 Login.propTypes = {
     setAlert: PropTypes.func.isRequired,
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
 };
 
-export default connect(null, { setAlert })(Login);
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, login })(Login);
