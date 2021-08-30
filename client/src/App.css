@@ -35,6 +35,14 @@ html {
     min-height: 85vh;
 }
 
+.topPadding {
+    padding-top: 75px;
+}
+
+.formInput {
+    max-width: 70%;
+}
+
 svg {
     color: rgb(229, 218, 255);
 }

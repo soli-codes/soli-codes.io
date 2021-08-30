@@ -159,6 +159,7 @@ img {
 .alert-primary {
     background: #18181b;
     color: #fff;
+    border: 1px solid rgb(229, 218, 255);
 }
 
 .btn-light,
