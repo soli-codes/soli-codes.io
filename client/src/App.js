@@ -8,6 +8,10 @@ import Navbar from './components/layout/Navbar';
 import Register from './components/auth/Register';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
+import Profiles from './components/profiles/Profiles';
+import Profile from './components/profile/Profile';
+import Blog from './components/Blog/Blog';
+import { Toolbox } from './components/Toolbox/Toolbox';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -35,6 +39,23 @@ const App = () => {
                         <Alert />
                         <Switch>
                             <Route exact path='/login' component={Login} />
+                            <Route
+                                exact
+                                path='/profiles'
+                                component={Profiles}
+                            />
+                            <Route exact path='/blog' component={Blog} />
+                            <Route exact path='/toolbox' component={Toolbox} />
+                            <Route
+                                exact
+                                path='/profile/:id'
+                                component={Profile}
+                            />
+                            <Route
+                                exact
+                                path='/register/'
+                                component={Register}
+                            />
                             <PrivateRoute
                                 exact
                                 path='/dashboard'
@@ -42,13 +63,8 @@ const App = () => {
                             />
                             <PrivateRoute
                                 exact
-                                path='/create-profile'
+                                path='/edit-profile'
                                 component={CreateProfile}
-                            />
-                            <Route
-                                exact
-                                path='/register/'
-                                component={Register}
                             />
                         </Switch>
                     </section>

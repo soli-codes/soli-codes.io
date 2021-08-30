@@ -1,0 +1,45 @@
+.profileContainer {
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+.profileContainer a:hover {
+    border-bottom: 2px solid rgb(152, 108, 255);
+}
+
+.icoSpacing {
+    padding-right: 0.5rem;
+}
+
+.about {
+    letter-spacing: normal;
+    margin-bottom: 3rem;
+    font-size: 16px;
+    font-family: 'Kaisei HarunoUmi', serif;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.btnAlign {
+    text-align: center;
+    border: 1px solid rgb(229, 218, 255);
+    line-height: 35px;
+}
+
+.btnAlign:hover {
+    background-color: rgb(229, 218, 255);
+    color: #18181b;
+    transition: 300ms;
+}

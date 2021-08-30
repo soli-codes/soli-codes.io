@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator/check');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/user');
-const Post = require('../../models/post');
+const Post = require('../../models/Post');
 
 // @route  GET api/profile/me
 // @desc   Get logged in user's profile
@@ -34,12 +34,13 @@ router.get('/me', auth, async (req, res) => {
 // @desc   Create or update user profile
 // @access Private
 router.post('/', auth, async (req, res) => {
-    const { group, youtube, twitch, twitter } = req.body;
+    const { group, youtube, twitch, twitter, about } = req.body;
 
     // Build profile object
     const profileFields = {};
     profileFields.user = req.user.id;
     if (group) profileFields.group = group;
+    if (about) profileFields.about = about;
 
     // Build social object
     profileFields.social = {};

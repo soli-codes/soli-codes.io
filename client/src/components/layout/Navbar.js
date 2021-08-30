@@ -7,12 +7,15 @@ import { logout } from '../../actions/auth';
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const authLinks = (
         <ul>
-            <li>
+            <li className='hoverUnderline'>
+                <Link to='/profiles'>Profiles</Link>
+            </li>
+            <li className='hoverUnderline'>
                 <Link to='/dashboard'>
                     <i className='fas fa-user' /> Dashboard
                 </Link>
             </li>
-            <li>
+            <li className='hoverUnderline'>
                 <a onClick={logout} href='#!'>
                     <i className='fas fa-sign-out-alt' /> Logout
                 </a>
@@ -22,17 +25,20 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
     const guestLinks = (
         <ul>
-            <li>
+            <li className='hoverUnderline'>
+                <Link to='/profiles'>Profiles</Link>
+            </li>
+            <li className='hoverUnderline'>
                 <Link to='/register'>Register</Link>
             </li>
-            <li>
+            <li className='hoverUnderline'>
                 <Link to='/login'>Login</Link>
             </li>
         </ul>
     );
     return (
         <nav className='navbar'>
-            <h1>
+            <h1 className='hoverUnderline'>
                 <Link to='/'>
                     <i /> soli-codes
                 </Link>

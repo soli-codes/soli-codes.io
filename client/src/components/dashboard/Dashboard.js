@@ -14,44 +14,55 @@ const Dashboard = ({
 }) => {
     useEffect(() => {
         getCurrentProfile();
-    }, []);
+    }, [getCurrentProfile]);
     return loading && profile === null ? (
         <Spinner />
     ) : (
         <Fragment>
             <div className='topPadding'>
-                <h1 className='large'>Dashboard</h1>
-                <p className='lead'>
-                    <i className='fas fa-user'>Welcome {user && user.name}</i>
-                </p>
+                <h1 className='center'>{user && user.name}</h1>
                 {profile !== null ? (
                     <Fragment>
-                        {' '}
-                        <Link to='/create-profile' className='btn btn-primary'>
-                            Edit profile
-                        </Link>
-                        <button
-                            className='btn btn-danger'
-                            onClick={() => deleteAccount()}
-                        >
-                            <i className='fas'>Delete my account</i>
-                        </button>
+                        <div style={{ margin: 'auto', textAlign: 'center' }}>
+                            {' '}
+                            <Link
+                                to='/edit-profile'
+                                className='btn btn-primary'
+                            >
+                                Edit profile
+                            </Link>
+                            <button
+                                className='btn btn-danger'
+                                onClick={() => deleteAccount()}
+                            >
+                                <i style={{ fontFamily: 'Montserrat' }}>
+                                    Delete my account
+                                </i>
+                            </button>
+                        </div>
                     </Fragment>
                 ) : (
                     <Fragment>
-                        <p>
-                            You have not yet setup a profile, please add some
-                            info
-                        </p>
-                        <Link to='/create-profile' className='btn btn-primary'>
-                            Create profile
-                        </Link>
-                        <button
-                            className='btn btn-danger'
-                            onClick={() => deleteAccount()}
-                        >
-                            <i className='fas'>Delete my account</i>
-                        </button>
+                        <div style={{ margin: 'auto', textAlign: 'center' }}>
+                            <p>
+                                You have not yet setup a profile, please add
+                                some info
+                            </p>
+                            <Link
+                                to='/edit-profile'
+                                className='btn btn-primary'
+                            >
+                                Create profile
+                            </Link>
+                            <button
+                                className='btn'
+                                onClick={() => deleteAccount()}
+                            >
+                                <i style={{ fontFamily: 'Montserrat' }}>
+                                    Delete my account
+                                </i>
+                            </button>
+                        </div>
                     </Fragment>
                 )}
             </div>

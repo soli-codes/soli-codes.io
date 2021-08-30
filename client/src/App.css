@@ -65,8 +65,16 @@ svg {
     width: 32px !important;
 }
 
-a:hover {
+.socials a:hover {
     border-bottom: 2px solid rgb(152, 108, 255);
+}
+
+.hoverUnderline a:hover {
+    border-bottom: 2px solid rgb(152, 108, 255);
+}
+
+.socialIcon:hover {
+    opacity: 0.8;
 }
 
 .ico {

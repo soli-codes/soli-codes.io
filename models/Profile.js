@@ -10,6 +10,9 @@ const ProfileSchema = new mongoose.Schema({
             type: [String],
         },
     ],
+    about: {
+        type: String,
+    },
     social: {
         youtube: {
             type: String,

@@ -15,6 +15,7 @@ const CreateProfile = ({
         youtube: '',
         twitch: '',
         twitter: '',
+        about: '',
     });
 
     const onChange = (e) => {
@@ -26,24 +27,36 @@ const CreateProfile = ({
         createProfile(formData, history);
     };
 
-    const { youtube, twitch, twitter } = formData;
+    const { youtube, twitch, twitter, about } = formData;
     useEffect(() => {
         getCurrentProfile();
 
         setFormData({
-            youtube: loading || profile === null ? '' : profile.social.youtube,
-            twitch: loading || profile === null ? '' : profile.social.twitch,
-            twitter: loading || profile === null ? '' : profile.social.twitter,
+            youtube:
+                loading || profile === null || profile.social === undefined
+                    ? ''
+                    : profile.social.youtube,
+            twitch:
+                loading || profile === null || profile.social === undefined
+                    ? ''
+                    : profile.social.twitch,
+            twitter:
+                loading || profile === null || profile.social === undefined
+                    ? ''
+                    : profile.social.twitter,
+            about:
+                loading || profile === null || profile.about === undefined
+                    ? ''
+                    : profile.about,
         });
-    }, [loading]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [getCurrentProfile, loading]);
+
     return loading && profile === null ? (
         <Spinner />
     ) : (
         <Fragment>
             <div className='topPadding'>
-                <p className='lead' style={{ padding: '0.5rem' }}>
-                    Let's get some information to make your profile stand out
-                </p>
                 <form className='form' onSubmit={(e) => onSubmit(e)}>
                     <div className='form-group social-input'>
                         <i className='fab fa-twitter fa-2x'></i>
@@ -53,6 +66,8 @@ const CreateProfile = ({
                             className='formInput'
                             name='twitter'
                             value={twitter}
+                            pattern='(https:\/\/twitter)\.com\/([a-zA-Z0-9_]+)'
+                            title='URL must start with https://'
                             onChange={(e) => onChange(e)}
                         />
                     </div>
@@ -65,6 +80,8 @@ const CreateProfile = ({
                             placeholder={youtube}
                             name='youtube'
                             value={youtube}
+                            pattern='(https:\/\/youtube)\.com\/([a-zA-Z0-9_]+)'
+                            title='URL must start with https://'
                             onChange={(e) => onChange(e)}
                         />
                     </div>
@@ -77,13 +94,28 @@ const CreateProfile = ({
                             className='formInput'
                             name='twitch'
                             value={twitch}
+                            pattern='(https:\/\/twitch)\.tv\/([a-zA-Z0-9_]+)'
+                            title='URL must start with https://'
                             onChange={(e) => onChange(e)}
                         />
                     </div>
-                    <input type='submit' className='btn btn-primary my-1' />
-                    <Link className='btn btn-light my-1' to='dashboard'>
-                        Go Back
-                    </Link>
+                    <div className='form-group social-input'>
+                        <i className='fa fa-user fa-2x'></i>
+                        <textarea
+                            type='text'
+                            placeholder={about}
+                            className='formInput'
+                            name='about'
+                            value={about}
+                            onChange={(e) => onChange(e)}
+                        />
+                    </div>
+                    <div style={{ margin: 'auto', textAlign: 'center' }}>
+                        <input type='submit' className='btn btn-primary my-1' />
+                        <Link className='btn btn-light my-1' to='dashboard'>
+                            Go Back
+                        </Link>
+                    </div>
                 </form>
             </div>
         </Fragment>
